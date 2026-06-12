@@ -12,6 +12,9 @@ const MODULES = [
   { id: "kb", icon: BookOpen, title: "知识库", desc: "API 文档 · 工具目录 · 审计", color: "purple", tools: 301, href: "/mcp/kb" },
   { id: "signals", icon: Radio, title: "信号策略", desc: "聪明钱 · 牛人榜 · 策略市场", color: "pink", tools: 30, href: "/mcp/signals" },
   { id: "collab", icon: Users, title: "Agent 通讯站", desc: "AI 协作 · 多Agent · WS实时", color: "sky", tools: 8, href: "/mcp/collab" },
+  { id: "plugins", icon: Zap, title: "Plugin Manager", desc: "插件管理 · 动态加载 · 启停", color: "violet", tools: 5, href: "/mcp/plugins" },
+  { id: "agent", icon: Activity, title: "AI Agent", desc: "智能代理 · 监控 · 执行", color: "amber", tools: 5, href: "/mcp/agent" },
+  { id: "memory", icon: BookOpen, title: "Memory Engine", desc: "记忆 · 偏好 · 上下文", color: "teal", tools: 6, href: "/mcp/memory" },
 ];
 
 const STEPS = [
@@ -30,6 +33,8 @@ const colors: Record<string, string> = {
   purple: "text-purple-400 bg-purple-500/10 border-purple-500/20",
   pink: "text-pink-400 bg-pink-500/10 border-pink-500/20",
   sky: "text-sky-400 bg-sky-500/10 border-sky-500/20",
+  violet: "text-violet-400 bg-violet-500/10 border-violet-500/20",
+  teal: "text-teal-400 bg-teal-500/10 border-teal-500/20",
 };
 
 export default function McpPage() {

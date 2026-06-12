@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "paths": {
+      "@okx-mcp/core": ["./packages/mcp-core/src"],
+      "@okx-mcp/protocol": ["./packages/mcp-protocol/src"],
+      "@okx-mcp/agents": ["./packages/agents/src"]
+    }
+  },
+  "exclude": ["node_modules", "dist", ".next"]
+}

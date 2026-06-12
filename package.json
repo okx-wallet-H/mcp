@@ -1,0 +1,13 @@
+{
+  "name": "okx-mcp-console",
+  "version": "0.1.0",
+  "private": true,
+  "description": "OKX MCP Console - MCP-native platform",
+  "workspaces": [ "packages/*", "apps/*" ],
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "dashboard:dev": "npm run dev -w @okx-mcp/dashboard",
+    "core:dev": "npm run dev -w @okx-mcp/core"
+  },
+  "engines": { "node": ">=18" }
+}

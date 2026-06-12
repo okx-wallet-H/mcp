@@ -1,0 +1,21 @@
+{
+  "name": "@okx-mcp/cli",
+  "version": "0.1.0",
+  "description": "CLI entry point for OKX MCP Console",
+  "type": "module",
+  "main": "./src/index.ts",
+  "bin": {
+    "okx-mcp": "./src/index.ts"
+  },
+  "scripts": {
+    "start": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@okx-mcp/core": "file:../mcp-core"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "tsx": "^4.16.0",
+    "typescript": "^5.5.0"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "@okx-mcp/protocol",
+  "version": "0.1.0",
+  "description": "Shared MCP protocol types, client SDK wrapper, and WebSocket protocol definitions",
+  "type": "module",
+  "main": "./src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}

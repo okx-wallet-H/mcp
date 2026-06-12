@@ -13,6 +13,8 @@ const nav = [
   { label: "Onchain", href: "/mcp/onchain" },
   { label: "知识库", href: "/mcp/kb" },
   { label: "通讯站", href: "/mcp/collab" },
+  { label: "插件", href: "/mcp/plugins" },
+  { label: "Agent", href: "/mcp/agent" },
 ];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -3,8 +3,8 @@ import "./globals.css";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "OKX MCP Console",
-  description: "MCP-native platform for OKX trading, knowledge base, agent network",
+  title: "Hvip-One",
+  description: "Hvip-One — OKX full ecosystem MCP console",
 };
 
 const nav = [
@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="container-page flex h-14 items-center justify-between">
             <Link href="/mcp" className="flex items-center gap-2.5 group">
               <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-400 to-blue-500 text-black font-black text-sm shadow-lg shadow-emerald-500/20">M</span>
-              <span className="text-sm font-bold tracking-wide text-gradient">OKX MCP Console</span>
+              <span className="text-sm font-bold tracking-wide text-gradient">Hvip-One</span>
             </Link>
             <nav className="hidden items-center gap-1 md:flex">
               {nav.map((n) => (

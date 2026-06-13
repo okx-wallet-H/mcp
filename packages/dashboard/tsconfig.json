@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    /* @ts-ignore baseUrl deprecated but needed for @/ paths */
+    "ignoreDeprecations": "6.0",
     "target": "ES2022",
     "module": "ESNext",
     "moduleResolution": "bundler",

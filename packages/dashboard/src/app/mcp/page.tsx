@@ -36,8 +36,13 @@ export default function McpPage() {
     fetch("/api/plugins").then(r => r.json()).then(d => setStats(s => ({ ...s, plugins: d.plugins?.length || 3, running: d.runningPlugins || 1, tools: d.totalTools || 180 }))).catch(e => console.error("Stats load failed:", e));
   }, []);
 
+  const loading = !stats.tools && stats.plugins === 3; // initial state
+
   return (
     <div className="container-page py-8 space-y-6">
+      {loading && (
+        <div className="flex items-center justify-center py-20"><div className="animate-spin rounded-full h-6 w-6 border-2 border-emerald-400 border-t-transparent" /></div>
+      )}
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-white">Hvip-One 中控台</h1>

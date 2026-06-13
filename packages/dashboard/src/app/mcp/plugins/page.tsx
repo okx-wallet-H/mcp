@@ -15,8 +15,11 @@ export default function PluginsPage() {
   const running = plugins.filter(p => p.status === "running").length;
   const totalTools = data?.totalTools || 0;
 
+  if (!data && !error) return <div className="flex items-center justify-center py-20"><div className="animate-spin rounded-full h-6 w-6 border-2 border-purple-400 border-t-transparent" /></div>;
+
   return (
     <div className="container-page py-6">
+      {error && <div className="mb-4 text-[11px] bg-red-500/10 text-red-400 px-3 py-2 rounded-xl">⚠ {error}</div>}
       <div className="flex items-center gap-2 mb-4 text-xs">
         <Link href="/mcp" className="text-neutral-500 hover:text-white">中控台</Link>
         <span className="text-neutral-700">/</span>

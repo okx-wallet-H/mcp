@@ -1,11 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-
-interface Entry { id: string; type: string; content: string; timestamp: number; metadata?: Record<string, unknown> }
+import { MemoryEntry, MemoryResponse } from "@/lib/api-types";
 
 export default function MemoryPage() {
-  const [data, setData] = useState<{ entries: Entry[]; conversations: number; preferences: number; totalEntries: number } | null>(null);
+  const [data, setData] = useState<MemoryResponse | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const [filter, setFilter] = useState("all");
   const [search, setSearch] = useState("");
 

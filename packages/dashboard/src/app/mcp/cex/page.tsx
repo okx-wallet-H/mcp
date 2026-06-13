@@ -114,8 +114,9 @@ function KlineChart({ data }: { data: CandleItem[] }) {
 // ━━━━━ Main Page ━━━━━
 export default function CexPage() {
   const [selected, setSelected] = useState("BTC-USDT");
+  const [period, setPeriod] = useState("1H");
   const { ticker: wsTicker } = useWsTicker(selected);
-  const { candles: wsCandles } = useWsCandles(selected, "1H");
+  const { candles: wsCandles } = useWsCandles(selected, period);
   const { orderbook: wsOb } = useWsOrderbook(selected);
 
   const [mockCandles] = useState(() => generateCandles(65234, 60));
@@ -193,7 +194,7 @@ export default function CexPage() {
               </div>
             </div>
             <div className="flex gap-1">
-              {["1m","5m","15m","1H","4H","1D"].map(b=><button key={b} className="text-[10px] px-2 py-1 rounded-md bg-white/[0.04] text-neutral-400 hover:text-white hover:bg-white/[0.08]">{b}</button>)}
+              {["1m","5m","15m","1H","4H","1D"].map(b=>(<button key={b} onClick={()=>setPeriod(b)} className={`text-[10px] px-2 py-1 rounded-md transition-all ${period===b?"bg-brand-accent/20 text-brand-accent":"bg-white/[0.04] text-neutral-400 hover:text-white hover:bg-white/[0.08]"}`}>{b}</button>))}
             </div>
           </div>
           <div className="p-4">

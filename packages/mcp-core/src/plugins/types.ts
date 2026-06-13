@@ -51,11 +51,12 @@ export interface PluginEvent {
 export const BUILTIN_PLUGINS: PluginManifest[] = [
   {
     name: "OKX CEX",
-    version: "1.0.0",
-    description: "OKX CEX Trading — 180+ MCP tools",
+    version: "0.2.42",
+    description: "OKX CEX Trading — 180+ MCP tools via hvip-mcp-server",
     module: "cex",
     transport: "stdio",
-    endpoint: "hvip-mcp-server",
+    endpoint: "npx",
+    args: ["hvip-mcp-server"],
     autoStart: true,
   },
   {

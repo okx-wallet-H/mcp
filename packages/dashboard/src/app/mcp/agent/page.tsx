@@ -1,11 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-
-interface Task { id: string; type: string; module: string; desc: string; schedule: string; enabled: boolean; lastRun?: string; status: string }
+import { AgentTask, AgentResponse } from "@/lib/api-types";
 
 export default function AgentPage() {
-  const [data, setData] = useState<{ tasks: Task[]; activeTasks: number; runtimeStatus: string } | null>(null);
+  const [data, setData] = useState<AgentResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
   useEffect(() => { fetch("/api/agent").then(r => r.json()).then(setData).catch(e => setError(e.message)); }, []);
 

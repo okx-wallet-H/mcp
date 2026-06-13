@@ -1,16 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-
-interface Plugin {
-  id: string; name: string; module: string; version: string;
-  status: string; toolCount: number; description: string;
-  transport: string; endpoint: string;
-}
+import { Plugin, PluginsResponse } from "@/lib/api-types";
 
 export default function PluginsPage() {
-  const [data, setData] = useState<{ plugins: Plugin[]; totalTools: number; protocol: string } | null>(null);
-
+  const [data, setData] = useState<PluginsResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {

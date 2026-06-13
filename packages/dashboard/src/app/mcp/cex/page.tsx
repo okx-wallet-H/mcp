@@ -119,8 +119,8 @@ export default function CexPage() {
   const { candles: wsCandles } = useWsCandles(selected, period);
   const { orderbook: wsOb } = useWsOrderbook(selected);
 
-  const [mockCandles] = useState(() => generateCandles(65234, 60));
-  const [mockOb] = useState(() => generateOrderBook(65234));
+  const [mockCandles, setMockCandles] = useState(() => generateCandles(65234, 60));
+  const [mockOb, setMockOb] = useState(() => generateOrderBook(65234));
   const [side, setSide] = useState<"buy" | "sell">("buy");
   const [ordType, setOrdType] = useState<"limit" | "market">("limit");
   const [price, setPrice] = useState("65234.5");
@@ -155,6 +155,11 @@ export default function CexPage() {
     }, 2000);
     return () => clearInterval(iv);
   }, [wsTicker]);
+
+  // Dynamic orderbook refresh
+  useEffect(() => { if (wsOb) return; const iv = setInterval(() => setMockOb(generateOrderBook(ticker.last)), 2000); return () => clearInterval(iv); }, [wsOb, ticker.last]);
+  // Regenerate candles on period change
+  useEffect(() => { if (wsCandles.length > 0) return; setMockCandles(generateCandles(ticker.last, period === "1D" ? 365 : period === "1m" ? 120 : 60)); }, [period, wsCandles.length, ticker.last]);
 
   const selectCoin = useCallback((sym: string) => { setSelected(sym); const t = mockTickers[sym]; if (t) setPrice(t.last.toFixed(t.last<1?4:1)); }, [mockTickers]);
 

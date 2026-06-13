@@ -6,7 +6,8 @@ interface Task { id: string; type: string; module: string; desc: string; schedul
 
 export default function AgentPage() {
   const [data, setData] = useState<{ tasks: Task[]; activeTasks: number; runtimeStatus: string } | null>(null);
-  useEffect(() => { fetch("/api/agent").then(r => r.json()).then(setData).catch(() => {}); }, []);
+  const [error, setError] = useState<string | null>(null);
+  useEffect(() => { fetch("/api/agent").then(r => r.json()).then(setData).catch(e => setError(e.message)); }, []);
 
   const tasks = data?.tasks || [];
   const active = data?.activeTasks || 0;

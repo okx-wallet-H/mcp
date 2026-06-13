@@ -11,8 +11,10 @@ interface Plugin {
 export default function PluginsPage() {
   const [data, setData] = useState<{ plugins: Plugin[]; totalTools: number; protocol: string } | null>(null);
 
+  const [error, setError] = useState<string | null>(null);
+
   useEffect(() => {
-    fetch("/api/plugins").then(r => r.json()).then(setData).catch(() => {});
+    fetch("/api/plugins").then(r => r.json()).then(setData).catch(e => setError(e.message));
   }, []);
 
   const plugins = data?.plugins || [];

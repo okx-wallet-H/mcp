@@ -9,7 +9,7 @@ export default function MemoryPage() {
   const [filter, setFilter] = useState("all");
   const [search, setSearch] = useState("");
 
-  useEffect(() => { fetch("/api/memory").then(r => r.json()).then(setData).catch(() => {}); }, []);
+  useEffect(() => { fetch("/api/memory").then(r => r.json()).then(setData).catch(e => setError(e.message)); }, []);
 
   const entries = data?.entries || [];
   const filtered = entries.filter(e => {

@@ -33,7 +33,7 @@ export default function McpPage() {
   const [pct, setPct] = useState(83);
 
   useEffect(() => {
-    fetch("/api/plugins").then(r => r.json()).then(d => setStats(s => ({ ...s, plugins: d.plugins?.length || 3, running: d.runningPlugins || 1, tools: d.totalTools || 180 }))).catch(() => {});
+    fetch("/api/plugins").then(r => r.json()).then(d => setStats(s => ({ ...s, plugins: d.plugins?.length || 3, running: d.runningPlugins || 1, tools: d.totalTools || 180 }))).catch(e => console.error("Stats load failed:", e));
   }, []);
 
   return (
